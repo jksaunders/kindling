@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const pages = require('./page-structure');
 
 module.exports = env => ({
   entry: './src/index.js',
@@ -25,12 +26,13 @@ module.exports = env => ({
     new webpack.DefinePlugin({
       'process.env.rootLocation': env ? `"/${env.rootLocation}"` : '""'
     }),
-    new HtmlWebpackPlugin({
+    ...pages.map(p => new HtmlWebpackPlugin({
       env: env || {},
-      title: 'Title',
-      description: 'Description',
+      filename: `${p.filename}.html`,
+      title: p.title,
+      description: p.description,
       template: 'index.html'
-    })
+    }))
   ],
   module: {
     rules: [
