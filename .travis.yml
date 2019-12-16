@@ -4,8 +4,9 @@ node_js:
 cache: npm
 script:
 - npm run test
-- npm run build:prod
-- cp ./CNAME ./dist
+- npm run build:prod -- --env.rootLocation=kindling
+# Uncomment this to use a custom domain
+# - cp ./CNAME ./dist
 
 deploy:
   provider: pages

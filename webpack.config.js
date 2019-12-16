@@ -54,6 +54,16 @@ module.exports = env => ({
         }
       },
       {
+        test: /\.(png|ico|webmanifest)$/,
+        include: path.resolve(__dirname, 'assets/favicons'),
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
+      },
+      {
         test: /\.(png|svg|jpg|gif)$/,
         use: {
           loader: 'file-loader',
