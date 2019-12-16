@@ -1,10 +1,12 @@
 {
     "parser": "babel-eslint",
-    "extends": ["airbnb", "airbnb/hooks"],
+    "plugins": ["prettier"],
+    "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
     "env": {
       "mocha": true
     },
     "rules": {
+      "prettier/prettier": "error",
       "arrow-parens": "off",
       "comma-dangle": ["error", "only-multiline"],
       "eol-last": "off",

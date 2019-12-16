@@ -10,11 +10,11 @@ const ROUTES = {
 };
 
 const propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 const defaultProps = {
-  children: null
+  children: null,
 };
 
 const AppRouter = ({ children }) => (
