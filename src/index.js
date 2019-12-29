@@ -6,11 +6,9 @@ import { AppRouter } from './ components';
 import favicons from '../assets/favicons';
 
 ReactDOM.render(
-  (
-    <Layout height="100vh" width="100vw">
-      <AppRouter />
-    </Layout>
-  ),
+  <Layout height="100vh" width="100vw">
+    <AppRouter />
+  </Layout>,
   // eslint-disable-next-line no-undef
   document.getElementById('root')
 );
