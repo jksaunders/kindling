@@ -8,7 +8,7 @@ const Content = styled(Layout)`
 
 const ExamplePage = () => (
   <Content height="auto" width="100%" padding="16px" centered>
-    <Typography.Body1>More details on Facebook</Typography.Body1>
+    <Typography>I&apos;m an example page!</Typography>
   </Content>
 );
 
