@@ -26,5 +26,8 @@
     "react/jsx-props-no-spreading": "off",
     "padding-line-between-statements": "off",
     "spaced-comment": "off"
+  },
+  "settings": {
+    "import/resolver": "webpack"
   }
 }
