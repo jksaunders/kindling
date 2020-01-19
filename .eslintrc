@@ -1,9 +1,16 @@
 {
   "parser": "babel-eslint",
-  "plugins": ["jest", "prettier"],
-  "extends": ["airbnb", "airbnb/hooks", "plugin:prettier/recommended"],
+  "plugins": ["jest", "cypress", "prettier"],
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:cypress-dev/general",
+    "plugin:cypress-dev/tests",
+    "plugin:prettier/recommended"
+  ],
   "env": {
     "browser": true,
+    "cypress/globals": true,
     "jest/globals": true,
     "mocha": true
   },
@@ -14,8 +21,10 @@
     "eol-last": "off",
     "react/jsx-filename-extension": "off",
     "react/button-has-type": "off",
-    "quotes": "error",
+    "quotes": "off",
     "import/prefer-default-export": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "padding-line-between-statements": "off",
+    "spaced-comment": "off"
   }
 }

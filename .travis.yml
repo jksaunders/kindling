@@ -1,18 +1,40 @@
 language: node_js
 node_js:
 - node
-cache: npm
-script:
-- npm run test
-- npm run build:prod -- --env.rootLocation=kindling
-# Uncomment this to use a custom domain
-# - cp ./CNAME ./dist
 
-deploy:
-  provider: pages
-  local_dir: "./dist"
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  keep_history: true
-  on:
-    branch: master
+cache:
+  # cache both npm modules and Cypress binary
+  directories:
+    - ~/.npm
+    - ~/.cache
+  override:
+    - npm ci
+    - npm run cy:verify
+
+jobs:
+  include:
+    - stage: Full Pipeline
+    # - stage: unit tests
+      script:
+      - npm run test
+    # - stage: End-to-end tests
+      # script:
+      - npm start &
+      - wait-on http://localhost:9102
+      - npm run cy:run
+      - kill $(jobs -p) || true
+    # - stage: deploy
+      # script:
+      - npm run build:prod -- --env.rootLocation=kindling
+      # Uncomment this to use a custom domain
+      # - cp ./CNAME ./dist
+      deploy:
+        provider: pages
+        local_dir: "./dist"
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        keep_history: true
+        on:
+          branch: master
+      # after_deploy:
+      # - "curl -X POST \"https://api.cloudflare.com/client/v4/zones/587bd1e75d596eed41659602d0135863/purge_cache\" -H \"X-Auth-Email: jk.saunders@hotmail.com\" -H \"X-Auth-Key: $CLOUDFLARE_TOKEN\" -H \"Content-Type: application/json\" --data '{\"purge_everything\":true}'"
