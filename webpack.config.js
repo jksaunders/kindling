@@ -23,7 +23,7 @@ module.exports = env => ({
   devServer: {
     contentBase: './dist',
     historyApiFallback: true,
-    port: 9102,
+    port: 9103,
   },
   plugins: [
     new CleanWebpackPlugin(),

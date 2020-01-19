@@ -20,7 +20,7 @@ jobs:
     # - stage: End-to-end tests
       # script:
       - npm start &
-      - wait-on http://localhost:9102
+      - wait-on http://localhost:9103
       - npm run cy:run
       - kill $(jobs -p) || true
     # - stage: deploy
