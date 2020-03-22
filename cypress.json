@@ -1,4 +1,4 @@
 {
-  "baseUrl": "https://example.cypress.io",
+  "baseUrl": "http://localhost:9103",
   "video": false
 }
