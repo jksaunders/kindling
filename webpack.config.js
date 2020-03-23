@@ -1,10 +1,11 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const pages = require('./page-structure');
 
-module.exports = env => ({
+module.exports = (env) => ({
   entry: './src/index.js',
   output: {
     filename: 'main.js',
@@ -18,6 +19,7 @@ module.exports = env => ({
         'node_modules',
         'styled-components'
       ),
+      '@design': path.resolve(__dirname, 'src/design'),
     },
   },
   devServer: {
@@ -31,7 +33,7 @@ module.exports = env => ({
       'process.env.rootLocation': env ? `"/${env.rootLocation}"` : '""',
     }),
     ...pages.map(
-      p =>
+      (p) =>
         new HtmlWebpackPlugin({
           env: env || {},
           filename: `${p.filename}.html`,
