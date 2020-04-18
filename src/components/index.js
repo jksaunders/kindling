@@ -1,2 +1,2 @@
 export * from './pages';
-export { default as AppRouter } from './AppRouter';
+export { default as Routes } from './Routes';
