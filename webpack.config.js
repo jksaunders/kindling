@@ -20,6 +20,7 @@ module.exports = (env) => ({
         'styled-components'
       ),
       '@design': path.resolve(__dirname, 'src/design'),
+      '@stores': path.resolve(__dirname, 'src/stores'),
     },
   },
   devServer: {
