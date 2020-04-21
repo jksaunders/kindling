@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Layout, Typography } from '@jksaunders/bonfire';
 import { observer } from 'mobx-react-lite';
-import useStores from '../../../stores';
+import useStores from '@stores';
 
 const Content = styled(Layout)`
   background-color: rgba(255, 255, 255, 0.7);
