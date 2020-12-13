@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <% if (htmlWebpackPlugin.options.env.production) { %>
+    <% if (htmlWebpackPlugin.options && htmlWebpackPlugin.options.env && htmlWebpackPlugin.options.env.production) { %>
       <script>
       </script>
     <% } %>

@@ -9,7 +9,7 @@ cache:
     - ~/.cache
   override:
     - npm ci
-    - npm run cy:verify
+    # - npm run cy:verify
 
 jobs:
   include:
@@ -20,8 +20,8 @@ jobs:
     # - stage: End-to-end tests
       # script:
       - npm start &
-      - wait-on http://localhost:9103
-      - npm run cy:run
+      - wait-on http://localhost:9104
+      # - npm run cy:run
       - kill $(jobs -p) || true
     # - stage: deploy
       # script:

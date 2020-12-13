@@ -23,9 +23,10 @@ module.exports = {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    '**/src/**/**.{js,jsx}',
-    '!**/src/**/**.stories.{js,jsx}',
-    '!**/src/**/**.test.{js,jsx}',
+    '**/src/**/**.{js,jsx,ts,tsx}',
+    '!**/src/**/**.stories.{js,jsx,ts,tsx}',
+    '!**/src/**/**.spec.{js,jsx,ts,tsx}',
+    '!**/src/**/**.test.{js,jsx,ts,tsx}',
   ],
 
   // The directory where Jest should output its coverage files
@@ -128,7 +129,7 @@ module.exports = {
   setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  setupFilesAfterEnv: ['./jest-setup.js'],
+  setupFilesAfterEnv: ['./configs/jest-setup.js'],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
