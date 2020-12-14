@@ -14,7 +14,7 @@
     "jest:watch": "jest --watch",
     "lint": "eslint src",
     "start": "webpack serve --mode development --hot --config configs/webpack.dev.js",
-    "test": "npm run lint"
+    "test": "npm run lint && npm run jest:coverage"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "@babel/preset-env": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
+    "@types/jest": "^26.0.19",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
     "babel-loader": "^8.2.2",
@@ -49,6 +50,7 @@
     "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-react": "^7.21.5",
     "html-webpack-plugin": "^4.5.0",
+    "jest": "^26.6.3",
     "prettier": "^2.2.1",
     "style-loader": "^2.0.0",
     "wait-on": "^5.2.0",
