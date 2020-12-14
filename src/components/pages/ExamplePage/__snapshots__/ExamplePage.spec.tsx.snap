@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<div
+  class="ExamplePage__StyledComponentsExample-itvy6-0 GvyiP"
+>
+  I'm an example page!
+</div>
+`;
