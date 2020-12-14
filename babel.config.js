@@ -20,6 +20,8 @@ module.exports = (api) => {
 
   return {
     plugins: [
+      '@babel/plugin-transform-regenerator',
+      '@babel/plugin-transform-runtime',
       'babel-plugin-styled-components',
       '@babel/plugin-proposal-optional-chaining',
     ],
