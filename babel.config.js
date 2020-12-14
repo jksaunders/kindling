@@ -19,7 +19,10 @@ module.exports = (api) => {
   }
 
   return {
-    plugins: ['@babel/plugin-proposal-optional-chaining'],
+    plugins: [
+      'babel-plugin-styled-components',
+      '@babel/plugin-proposal-optional-chaining',
+    ],
     presets,
   };
 };
