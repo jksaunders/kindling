@@ -21,7 +21,7 @@ jobs:
       # script:
       - npm start &
       - wait-on http://localhost:9104
-      # - npm run cy:run
+      - npm run cy:run
       - kill $(jobs -p) || true
     # - stage: deploy
       # script:
