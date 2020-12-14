@@ -6,7 +6,7 @@ class Example {
   }
 
   get content(): CypressResult {
-    return this.root.find('span');
+    return this.root.find('div');
   }
 }
 

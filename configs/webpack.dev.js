@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 const path = require('path');
@@ -15,6 +16,9 @@ const config = {
     filename: 'bundle.js',
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.rootLocation': '""',
+    }),
     new HtmlWebpackPlugin({
       filename: `index.html`,
       title: 'Dev server',

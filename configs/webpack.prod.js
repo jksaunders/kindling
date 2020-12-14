@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 const path = require('path');
@@ -16,7 +15,6 @@ const config = (env) => ({
     publicPath: './',
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.rootLocation': env ? `"/${env.rootLocation}"` : '""',
     }),
