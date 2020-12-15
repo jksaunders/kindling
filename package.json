@@ -4,8 +4,8 @@
   "description": "npm description.",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development --config configs/webpack.dev.js",
-    "build:prod": "cross-env NODE_ENV=production webpack --mode production --config configs/webpack.prod.js",
+    "build": "webpack --mode development --config configs/webpack.config.js",
+    "build:prod": "cross-env NODE_ENV=production webpack --mode production --config configs/webpack.config.js",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "jest": "jest",
@@ -13,7 +13,7 @@
     "jest:interactive": "jest --watch",
     "jest:watch": "jest --watch",
     "lint": "eslint src",
-    "start": "webpack serve --mode development --hot --config configs/webpack.dev.js",
+    "start": "webpack serve --mode development --hot --config configs/webpack.config.js",
     "test": "npm run lint && npm run jest:coverage"
   },
   "repository": {
@@ -49,8 +49,8 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@types/jest": "^26.0.19",
-    "@typescript-eslint/eslint-plugin": "^4.9.1",
-    "@typescript-eslint/parser": "^4.9.1",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.12.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -60,7 +60,7 @@
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-jest-dom": "^3.6.4",
-    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-testing-library": "^3.10.1",
     "html-webpack-plugin": "^4.5.0",
@@ -71,7 +71,6 @@
     "wait-on": "^5.2.0",
     "webpack": "^5.10.1",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.7.0"
+    "webpack-dev-server": "^3.11.0"
   }
 }

@@ -2,10 +2,14 @@ import React, { FC } from 'react';
 import { Route } from 'react-router-dom';
 import { ExamplePage } from './pages';
 
-const rootLocation = process.env.rootLocation || '';
+let rootLocation = '';
 
-const ROUTES = {
-  EXAMPLE_PAGE: `${rootLocation}/`,
+if (process.env.rootLocation) {
+  rootLocation = process.env.rootLocation;
+}
+
+export const ROUTES = {
+  EXAMPLE_PAGE: `${rootLocation}`,
 };
 
 const Routes: FC = () => (
