@@ -8,6 +8,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'prettier/@typescript-eslint',
+    'prettier/react',
   ],
   env: {
     browser: true,
@@ -25,7 +27,6 @@ module.exports = {
         allowTypedFunctionExpressions: true,
       },
     ],
-    '@typescript-eslint/indent': ['error', 2],
     'react/prop-types': 'off',
     'import/prefer-default-export': 'off',
   },

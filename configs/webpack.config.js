@@ -1,10 +1,25 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const pages = require('./page-structure');
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const spreadIf = (condition, toSpread) => {
+  if (condition) {
+    return toSpread;
+  }
+
+  if (Array.isArray(toSpread)) {
+    return [];
+  }
+  if (typeof toSpread === 'object') {
+    return {};
+  }
+  throw new Error('unknown spreadIf object: ' + toSpread);
+};
+
 const config = (env, args) => {
   console.log('Building Kindling project!');
   console.log('env:', env);
@@ -13,7 +28,7 @@ const config = (env, args) => {
   const isProd = args.mode === 'production';
 
   return {
-    ...(!isProd && {
+    ...spreadIf(!isProd, {
       devServer: {
         historyApiFallback: true,
         port: 9104,
@@ -45,6 +60,15 @@ const config = (env, args) => {
             },
           ],
         },
+        {
+          test: /\.(png|svg|jpg|gif)$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]-[hash:8].[ext]',
+            },
+          },
+        },
       ],
     },
     output: {
@@ -60,20 +84,36 @@ const config = (env, args) => {
         'process.env.rootLocation':
           env && env.rootLocation ? `"/${env.rootLocation}"` : '""',
       }),
-      ...pages.map(
-        (p) =>
-          new HtmlWebpackPlugin({
-            env: env || {},
-            filename: `${p.filename}.html`,
-            title: p.title,
-            description: p.description,
-            template: path.join(__dirname, 'index.html'),
-            minify: {
-              removeComments: true,
-              collapseWhitespace: true,
-            },
-          })
-      ),
+      ...spreadIf(isProd, [
+        new CopyPlugin({
+          patterns: [
+            { from: path.resolve(__dirname, '../assets/favicons'), to: '' },
+          ],
+        }),
+      ]),
+      ...(isProd
+        ? pages.map(
+            (p) =>
+              new HtmlWebpackPlugin({
+                env: env || {},
+                filename: `${p.filename}.html`,
+                title: p.title,
+                description: p.description,
+                template: path.join(__dirname, 'index.html'),
+                minify: {
+                  removeComments: true,
+                  collapseWhitespace: true,
+                },
+              })
+          )
+        : [
+            new HtmlWebpackPlugin({
+              filename: `index.html`,
+              title: 'Dev server',
+              description: 'Dev server description',
+              template: path.join(__dirname, 'index.html'),
+            }),
+          ]),
     ],
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],

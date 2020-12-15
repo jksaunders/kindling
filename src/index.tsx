@@ -4,8 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import { Layout } from '@jksaunders/bonfire';
 import { Routes } from './components';
 import { LocalStoresRoot } from './stores';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import favicons from '../assets/favicons';
 
 const AppWrappers: FC = ({ children }) => (
   <Router>
