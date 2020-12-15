@@ -27,10 +27,10 @@ jobs:
       # script:
       - npm run build:prod -- --env rootLocation=kindling
       # Uncomment this to use a custom domain
-      # - cp ./CNAME ./dist
+      # - cp ./CNAME ./build
       deploy:
         provider: pages
-        local_dir: "./dist"
+        local_dir: "./build"
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         keep_history: true

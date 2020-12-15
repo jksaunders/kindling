@@ -3,6 +3,9 @@ const path = require('path');
 
 const config = {
   entry: path.join(__dirname, '../src/index'),
+  output: {
+    path: path.join(__dirname, '../build'),
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },

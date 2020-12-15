@@ -64,7 +64,7 @@ typings/
 lib
 
 # webpack output
-dist
+build
 
 # cypress output
 cypress/screenshots
