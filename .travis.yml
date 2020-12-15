@@ -25,7 +25,7 @@ jobs:
       - kill $(jobs -p) || true
     # - stage: deploy
       # script:
-      - npm run build:prod -- --env rootLocation=kindling
+      - npm run build:prod -- --env.rootLocation=kindling
       # Uncomment this to use a custom domain
       # - cp ./CNAME ./build
       deploy:
