@@ -1,7 +1,9 @@
 import { observer } from 'mobx-react-lite';
 import React, { FC } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import useStores from '../../../stores';
+import { ROUTES } from '../../Routes';
 
 const StyledComponentsExample = styled.div`
   border-radius: 10px;
@@ -13,11 +15,17 @@ const StoresExampleUsage = observer(() => {
   return <div>{userStore.name}</div>;
 });
 
-const ExamplePage: FC = () => (
-  <StyledComponentsExample>
-    I&apos;m an example page!
-    <StoresExampleUsage />
-  </StyledComponentsExample>
-);
+const ExamplePage: FC = () => {
+  const history = useHistory();
+  return (
+    <StyledComponentsExample>
+      I&apos;m an example page!
+      <StoresExampleUsage />
+      <button onClick={(): void => history.push(ROUTES.ANOTHER_PAGE)}>
+        Go to another page
+      </button>
+    </StyledComponentsExample>
+  );
+};
 
 export default ExamplePage;

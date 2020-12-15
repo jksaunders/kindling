@@ -5,8 +5,8 @@ const pages = [
     description: 'Page description',
   },
   {
-    filename: 'about-us',
-    title: 'About Us',
+    filename: 'another-page',
+    title: 'Another Page',
     description: 'Kindling is a template repo for projects using bonfire.',
   },
 ];
