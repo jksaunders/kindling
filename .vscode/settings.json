@@ -1,0 +1,15 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.tabSize": 2,
+  "eslint.options": {
+    "parserOptions": {
+      "project": [
+        "${workspaceFolder}/tsconfig.json"
+      ],
+    }
+  },
+  "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

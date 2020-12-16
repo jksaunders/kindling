@@ -20,17 +20,17 @@ jobs:
     # - stage: End-to-end tests
       # script:
       - npm start &
-      - wait-on http://localhost:9103
+      - wait-on http://localhost:9104
       - npm run cy:run
       - kill $(jobs -p) || true
     # - stage: deploy
       # script:
-      - npm run build:prod -- --env.rootLocation=kindling
+      - npm run build:prod -- --env rootLocation=kindling
       # Uncomment this to use a custom domain
-      # - cp ./CNAME ./dist
+      # - cp ./CNAME ./build
       deploy:
         provider: pages
-        local_dir: "./dist"
+        local_dir: "./build"
         skip_cleanup: true
         github_token: $GITHUB_TOKEN
         keep_history: true
