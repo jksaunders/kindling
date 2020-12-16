@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import useStores from '../../../stores';

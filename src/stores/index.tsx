@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import { createContext, useContext, FC } from 'react';
 import { Stores } from './interfaces';
 import useAuthStore from './AuthStore';
 import useUserStore from './UserStore';
 
 // `as Stores` to override compile errors
-const LocalStoresContext = React.createContext<Stores>({} as Stores);
+const LocalStoresContext = createContext<Stores>({} as Stores);
 
 export const LocalStoresRoot: FC = ({ children }) => {
   const stores: Stores = {
@@ -25,6 +25,6 @@ export const LocalStoresRoot: FC = ({ children }) => {
   );
 };
 
-const useStores = (): Stores => React.useContext(LocalStoresContext);
+const useStores = (): Stores => useContext(LocalStoresContext);
 
 export default useStores;
