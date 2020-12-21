@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
+.c1 {
+  background-color: blue;
+}
+
 .c0 {
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
@@ -10,5 +14,11 @@ exports[`renders 1`] = `
   class="c0"
 >
   I'm another example page!
+  <button
+    class="c1"
+    color="blue"
+  >
+    test button
+  </button>
 </div>
 `;

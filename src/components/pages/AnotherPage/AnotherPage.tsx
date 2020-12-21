@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import { Button } from '@jksaunders/bonfire';
 
 const StyledComponentsExample = styled.div`
   border-radius: 10px;
@@ -9,6 +10,7 @@ const StyledComponentsExample = styled.div`
 const AnotherPage: FC = () => (
   <StyledComponentsExample>
     I&apos;m another example page!
+    <Button color={'blue'} />
   </StyledComponentsExample>
 );
 

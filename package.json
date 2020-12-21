@@ -6,13 +6,15 @@
   "scripts": {
     "build": "webpack --mode development --config configs/webpack.config.js",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production --config configs/webpack.config.js",
+    "check-types": "tsc --noemit",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
+    "eslint": "eslint src",
     "jest": "jest",
     "jest:coverage": "jest --coverage",
     "jest:interactive": "jest --watch",
     "jest:watch": "jest --watch",
-    "lint": "eslint src",
+    "lint": "npm run eslint && npm run check-types",
     "start": "webpack serve --mode development --hot --config configs/webpack.config.js",
     "test": "npm run lint && npm run jest:coverage"
   },
@@ -27,6 +29,7 @@
   },
   "homepage": "https://github.com/github-username/repo-name#readme",
   "dependencies": {
+    "@jksaunders/bonfire": "^2.0.0-beta.4",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.6",
