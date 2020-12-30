@@ -10,7 +10,7 @@ const StyledComponentsExample = styled.div`
 const AnotherPage: FC = () => (
   <StyledComponentsExample>
     I&apos;m another example page!
-    <Button color={'blue'} />
+    <Button color="blue" />
   </StyledComponentsExample>
 );
 
